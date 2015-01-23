@@ -1,0 +1,3 @@
+HUMP - http://vrld.github.io/hump/
+HardonCollider - http://vrld.github.io/HardonCollider/reference.html
+MiddleClass - https://github.com/kikito/middleclass/wiki
