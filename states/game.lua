@@ -11,8 +11,6 @@ player = Player(Vector(50,50))
 local item = nil
 function game:initialize()
   state.initialize(self)
-  print("INITIALIZED!")
-  print(self.transitionInTime)
 
 end
 
