@@ -26,6 +26,7 @@ function game:enter(previous) -- run every time the state is entered
 end
 
 function game:update(dt)
+  map:update(dt)
   if bar.items[1].name == 'PLAN' then
     timeScale = 0.2
   else
@@ -46,6 +47,7 @@ function game:draw()
   state:draw()
   bar:draw()
   camera:attach()
+  map:draw()
   love.graphics.setColor(255,255,255,255)
   player:draw()
   camera:detach()
