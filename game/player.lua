@@ -4,11 +4,12 @@ Player = GameObject:subclass('Player')
 
 function Player:initialize(pos)
  GameObject.initialize(self, 'assets/player.png', pos)
- self.collider = Collider:addRectangle(self.position.x, self.position.y, self.texture:getWidth(), self.texture:getHeight())
+ self.collider = Collider:addRectangle(self.position.x, self.position.y, self.texture:getWidth()-10, self.texture:getHeight()-5)
+ 
  self.velocity = Vector()
  self.velocity.x = 256
  self.acceleration = Vector(0,gravity)
- self.jumpForce = -64*gravity/self.velocity.x---(96 + 48*gravity/self.velocity.x)-- Player's starting velocity on a jump.
+ self.jumpForce = -(96 + 64*gravity/self.velocity.x)-- Player's starting velocity on a jump.
  self.slideTimer = 0
  self.maxSlideTimer = 0.375
  self.jumpTimer = 64/self.velocity.x * 2
@@ -110,6 +111,23 @@ function Player:update(dt)
   
   -- END DEBUG -- 
 end
+
+function Player:draw()
+  GameObject.draw(self)
+  vertices = {}
+  love.graphics.setColor(255,55,55,155)
+  for _, vertex in pairs(self.collider._polygon.vertices) do
+    table.insert(vertices, vertex.x)
+    table.insert(vertices, vertex.y)
+  end
+  love.graphics.polygon('fill', vertices)
+    
+end
+
+ 
+
+     
+
 
 function Player:jump()
   if self.grounded then

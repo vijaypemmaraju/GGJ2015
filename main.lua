@@ -28,7 +28,7 @@ function love.load(arg)
     
     deathTiles = {}
     for _, obj in pairs(map.layers.Death.objects) do
-      local x,y,w,h = obj.x+2, obj.y+2, 64-4,64-4
+      local x,y,w,h = obj.x+8, obj.y-64+8, 64-16, 64-16
       print(x,y,w,h)
       table.insert(deathTiles, shapes.newPolygonShape(x,y, x+w,y, x+w,y+h,  x,y+h))
   end

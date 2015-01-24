@@ -22,7 +22,7 @@ end
 
 function game:enter(previous) -- run every time the state is entered
   state.enter(self,previous)
-  TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
+ -- TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
   bar = Bar()
   bar:addBulletTime(defaultBulletTime)
   player.position.x = 0
@@ -69,10 +69,22 @@ function game:draw()
   --map:drawWorldCollision(collision)
   love.graphics.setColor(255,255,255,255)
   player:draw()
+  
+  love.graphics.setColor(255,55,55,155)
+  for _,tile in pairs(deathTiles) do
+         
+    vertices = {}
+    for _, vertex in pairs(tile._polygon.vertices) do
+      table.insert(vertices, vertex.x)
+      table.insert(vertices, vertex.y)
+    end
+    love.graphics.polygon('fill', vertices)
+  end
+  
+  
   camera:detach()
   love.graphics.setFont(timerFont)
   love.graphics.print(tostring(math.round(runTimer, 2)), 50, 50)
-  
   
   if bar:isBulletTime() then
     love.graphics.setColor(50, 50, 50, 150)
@@ -137,6 +149,8 @@ function game:reset()
   player.position = Vector(0,270)
     player.acceleration = Vector(0, gravity)
     player.velocity = Vector(player.velocity.x, 0)
+    player.slideTimer = 0
+    player:unslide()
     bar = Bar()
     bar:addBulletTime(defaultBulletTime)
 end
