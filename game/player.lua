@@ -138,3 +138,6 @@ end
 function Player:stop()
 	self.velocity = Vector(0, 0)
 end
+
+function Player:delay()
+end

@@ -108,7 +108,15 @@ function game:keypressed(key)
         item.hasPerformed = false
         item.action = player.jump
         bar:enqueue(item)
+    elseif key == 'd' then
+        item = {}
+        item.name = 'delay'
+        item.timeLeft = 0
+        item.hasPerformed = false
+        item.action = player.delay
+        bar:enqueue(item)
     end
+
   end
   
   
