@@ -23,7 +23,7 @@
    eJzt1ckNwCAMBEBKoP9q00CkBBKEjWc+/BDrQ7QGe/XdD5jUH86ROxi3qnZRezIzX6eomDm66D2puC+Vsmbxd09W/3sVZuhLxgr12eFtXaPUv8K+3GU7OW8WGXtQYV8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA8122zgHh
   </data>
  </layer>
- <objectgroup name="Death">
+ <objectgroup name="Death" visible="0">
   <object id="1" gid="19" x="192" y="256"/>
   <object id="2" gid="19" x="448" y="192"/>
   <object id="3" gid="19" x="576" y="192"/>

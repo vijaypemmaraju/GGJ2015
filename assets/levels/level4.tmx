@@ -27,7 +27,7 @@
   <object id="26" gid="16" x="2048" y="256"/>
   <object id="29" gid="1073741840" x="2432" y="192"/>
  </objectgroup>
- <objectgroup name="Death">
+ <objectgroup name="Death" visible="0">
   <object id="27" gid="16" x="2176" y="256"/>
   <object id="28" gid="16" x="2304" y="256"/>
   <object id="30" gid="19" x="2432" y="192"/>

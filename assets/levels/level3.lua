@@ -383,7 +383,7 @@ return {
     {
       type = "objectgroup",
       name = "Death",
-      visible = true,
+      visible = false,
       opacity = 1,
       properties = {},
       objects = {
