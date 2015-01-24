@@ -8,10 +8,10 @@ function Player:initialize(pos)
  self.velocity = Vector()
  self.velocity.x = 256
  self.acceleration = Vector(0,gravity)
- self.jumpForce = -1200 -- Player's starting velocity on a jump.
+ self.jumpForce = -64*gravity/self.velocity.x---(96 + 48*gravity/self.velocity.x)-- Player's starting velocity on a jump.
  self.slideTimer = 0
  self.maxSlideTimer = 0.375
- self.jumpTimer = 0.375
+ self.jumpTimer = 64/self.velocity.x * 2
  self.sliding = false
  self.grounded = false
 end
@@ -132,7 +132,7 @@ end
 
 function Player:moveRight()
 	self.velocity.x = 500
-	--print('RIGHT')
+	print('RIGHT')
 end
 
 function Player:stop()
