@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="64" nextobjectid="1">
+ <tileset firstgid="1" name="test_tileset" tilewidth="64" tileheight="64">
+  <image source="../images/test_tileset.png" trans="ff00ff" width="1218" height="386"/>
+  <tile id="37">
+   <properties>
+    <property name="collidable" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt10EOgyAQBVBuVL3/5Rq2pjSUMjqTvJcQdzifQdTWgCjnYGSUta4Zo3WeXfds2c/LNbuI/Z0l+7WOzM9x9FnzVObZPBl7Eu2uzKt7avdePDbNEymqJxnP2Ar96HauWeT5/+/8VfrRrWZ86h28cr9K/ehmM2b5Dvq1jmr96EbZsvRgJGtdO1T5r7/6Vu/xYXCfV7P2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFbwByFoSgw==
+  </data>
+ </layer>
+ <layer name="Collision" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt10EKhTAMBUBP4/2P+Om2UKnV/CYyA+JOX5Ja9TiAKOfgyChrrhmjPs/2PVvtZ3fOLmJ9Z6m9z5H5OY7ea3bVPFtPxplE+1fNq2vqq/vClaiMGXtZYR7Nmz2L3P+fXr/KPJonNe54B6/cr9I8mtm8Wb6D7ubYnXfFKHOWGYxkzfWGKv/1vau8VWv6Cr0HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACo4Qe4EA5n
+  </data>
+ </layer>
+ <layer name="Spike" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt08ERgCAMBEBKoP9qbcAZBYUA2f3wQ+9CSoFYNfoHOtWHs+UO2o3qbtWZ9LyvU0Rkzthzixn9fPlGxn0ZkTVTfyP80d/MXcsw756MGXqJ9KbflWaQYV/usp2cdxc7ziDDvgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADnuwBn8gIR
+  </data>
+ </layer>
+</map>
