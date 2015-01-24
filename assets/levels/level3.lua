@@ -159,7 +159,7 @@ return {
       y = 0,
       width = 100,
       height = 100,
-      visible = true,
+      visible = false,
       opacity = 1,
       properties = {},
       encoding = "lua",

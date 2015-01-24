@@ -87,3 +87,5 @@ end
 
 ---FONTS---
 pauseFont = love.graphics.newFont(24)
+timerFont = love.graphics.newFont(24)
+

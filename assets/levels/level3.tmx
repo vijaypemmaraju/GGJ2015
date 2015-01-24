@@ -13,7 +13,7 @@
    eJzt11sOgyAQAEBvVLn/5Ro+a4BqAYE6k5BoNO6y64tt+z9hdAJ8eHI/QmaMlIs/Oq8auTqfrfvIuadih8KxGfW4v0fN/Rg3tT/Dc5zS+10zYs4hs/3t3KeY5TkpndfyXtwbXaenu3pSW9sWea7Qj6hHT3p992qut0o/otqa3f1f/UuMlfoRXZnjDOuaq/FX60dUWrONrn/JjDm1Mtu6/qxSvnticJ/XpvYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAreAMK6BOp
   </data>
  </layer>
- <layer name="Collision" width="100" height="100">
+ <layer name="Collision" width="100" height="100" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt11EOgyAQBUBPw/2P2PjZRlCKsKAziUmbmuxjV61s2/Ok6AB8efM8UuaIlKsfnatFrs9X+x659qPaqfDbjHpc31Fr/6179H2G+/hI72dNxJpT5vPZuW8xy31SOu8Jz4UaozK29vaOnCvMY9cjZ6//veiZjtKadfR79T81VprHribvDPua2vqrzWNX2rNF979kxkx3mW1ff1Up76pregq9BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWMMH+00PSw==
   </data>
