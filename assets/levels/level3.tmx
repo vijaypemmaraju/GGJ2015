@@ -18,7 +18,7 @@
    eJzt10EKhTAMBUBP4/2P+Om2UKnV/CYyA+JOX5Ja9TiAKOfgyChrrhmjPs/2PVvtZ3fOLmJ9Z6m9z5H5OY7ea3bVPFtPxplE+1fNq2vqq/vClaiMGXtZYR7Nmz2L3P+fXr/KPJonNe54B6/cr9I8mtm8Wb6D7ubYnXfFKHOWGYxkzfWGKv/1vau8VWv6Cr0HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACo4Qe4EA5n
   </data>
  </layer>
- <layer name="Spike" width="100" height="100">
+ <layer name="Spike" width="100" height="100" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt08ERgCAMBEBKoP9qbcAZBYUA2f3wQ+9CSoFYNfoHOtWHs+UO2o3qbtWZ9LyvU0Rkzthzixn9fPlGxn0ZkTVTfyP80d/MXcsw756MGXqJ9KbflWaQYV/usp2cdxc7ziDDvgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADnuwBn8gIR
   </data>

@@ -6,25 +6,84 @@ function Player:initialize(pos)
  GameObject.initialize(self, 'assets/player.png', pos)
  self.collider = Collider:addRectangle(self.position.x, self.position.y, self.texture:getWidth(), self.texture:getHeight())
  self.velocity = Vector()
- self.velocity.x = 100
+ self.velocity.x = 256
  self.acceleration = Vector(0,gravity)
- self.jumpForce = -600 -- Player's starting velocity on a jump.
+ self.jumpForce = -1200 -- Player's starting velocity on a jump.
  self.slideTimer = 0
- self.maxSlideTimer = 1
+ self.maxSlideTimer = 0.28
+ self.jumpTimer = 0.4
  self.sliding = false
- self.grounded = true
+ self.grounded = false
 end
 
 function Player:update(dt)
   self.position = self.position + self.velocity*dt
-  -- self.velocity = self.velocity + self.acceleration*dt
+  if not self.grounded then
+    if self.velocity.y < 0 then
+      self.velocity = self.velocity + self.acceleration*dt
+    else
+      self.velocity = self.velocity + self.acceleration*dt*5
+    end
+    
+  end
+  
+  
+  if  self.grounded and self.velocity.y > 0 then
+    self.velocity.y = 0
+  end
+  
+  
+  self.velocity.y = math.min(self.velocity.y, 1000)
   if self.sliding then
     self.slideTimer = self.slideTimer + dt
   end
   if self.slideTimer >= self.maxSlideTimer then
     self:unslide()
   end
+  local hitGround = false
   
+  
+  self.collider:moveTo(self.position.x, self.position.y)
+  self.collider:setRotation(self.rotation)
+  
+  
+  for _,tile in pairs(collisionTiles) do
+         
+      local collides, dx, dy = self.collider:collidesWith(tile)
+     if collides then
+     
+        if dy < 0 then
+           hitGround = true
+           if  self.velocity.y > 0 and not self.grounded then
+             self.position.y = self.position.y + dy + 1
+             self.grounded = true
+
+             self.velocity.y = 0
+            end
+            
+
+        end
+        
+--        if dy > 0 and self.velocity.y  < 0 then
+--          self.position.y = self.position.y + dy
+--          self.velocity.y = 0
+--        end
+        
+         print(dx .. ' ' .. dy)
+        if dx < -1 then
+           
+          self.position.x = self.position.x + dx
+        end
+        
+     end
+     
+     
+  end
+  if not hitGround then
+     self.grounded = false
+  end
+
+ 
   -- DEBUG FLOOR SINCE NO COLLISON ATM, REMOVE LATER!!! --
 --  if self.position.y >= 400 then
 --    self.position.y = 400
@@ -43,6 +102,7 @@ end
 function Player:jump()
   if self.grounded then
     self.velocity.y = self.velocity.y + self.jumpForce
+    self.grounded = false
   end
 end
 
@@ -55,6 +115,7 @@ function Player:unslide()
   self.rotation = 0
   self.sliding = false
   self.slideTimer = 0
+  self.grounded = false
 end
 
 function Player:moveUp()

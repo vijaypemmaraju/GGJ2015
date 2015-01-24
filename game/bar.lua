@@ -4,7 +4,7 @@ Bar = class("Bar")
 
 function Bar:initialize() 
   self.items = {}
-  self.barScale = 100
+  self.barScale = player.velocity.x
 end
 
 
@@ -50,7 +50,7 @@ end
 
 
 function Bar:draw()
-  x = 0
+  x = player.position.x
   for index, item in pairs(self.items) do
      width = item.timeLeft * self.barScale
      actionWidth = item.actionTime * self.barScale
@@ -68,8 +68,8 @@ function Bar:draw()
        
        -- draw left and right edges 
        love.graphics.setColor(255,255,255,155)
-       love.graphics.line(x, 0, x , 50)
-       love.graphics.line(x+width, 0, x+width  , 50)
+       love.graphics.line(x, 0, x , love.graphics.getHeight())
+       love.graphics.line(x+width, 0, x+width  , love.graphics.getHeight())
       
        --  draw text 
        if item.name == "PLAN" then
@@ -86,11 +86,11 @@ function Bar:draw()
        if item.actionTime > 0 then
          width = actionWidth
          love.graphics.setColor(255,55,55,155)
-         love.graphics.rectangle('fill', x, 0, width, 50)
+         love.graphics.rectangle('fill', x, 0, width, love.graphics.getHeight())
          
          love.graphics.setColor(255,255,255,155)
          love.graphics.line(x, 0, x , 50)
-         love.graphics.line(x+width, 0, x+width  , 50)
+         love.graphics.line(x+width, 0, x+width  , love.graphics.getHeight())
          
          love.graphics.setColor(25,25,25,155)
          love.graphics.printf(item.name, x, 0, width, 'center')

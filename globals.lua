@@ -27,7 +27,7 @@ Collider = HC(100, on_collision)
 time = 0
 timeScale = 1
 
-gravity = 1000 -- Acceleration of Gravity
+gravity = 5500 -- Acceleration of Gravity
 
 gameResolution = Vector(800, 600)
 

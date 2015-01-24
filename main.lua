@@ -13,14 +13,15 @@ function love.load(arg)
   love.mouse.setCursor(defaultCursor)
 
   -- Load a map exported to Lua from Tiled
-  map = sti.new("assets/levels/level0")
+  map = sti.new("assets/levels/level3")
   world = love.physics.newWorld()
   collision = map:initWorldCollision(world)
-  
-  for i, obj in pairs(collision) do
-    if type(obj.shape) == "table" then
-      Collider:addPolygon(collision.body:getWorldPoints(obj.shape:getPoints()))      
-    end
+  collisionTiles = {}
+  for _, obj in ipairs(collision) do
+   -- if type(obj.shape) == "table" then
+      local a,b,c,d,e,f,g,h = collision.body:getWorldPoints(obj.shape:getPoints())
+      table.insert(collisionTiles, shapes.newPolygonShape(a,b,c,d,e,f,g,h))
+   -- end
     
   end
 

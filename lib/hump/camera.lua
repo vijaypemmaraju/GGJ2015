@@ -88,6 +88,15 @@ function Camera:attach()
 	love.graphics.translate(-self.x, -self.y)
 end
 
+function Camera:attachXOnly()
+	local cx,cy = gameWidth/(2*self.scale), gameHeight/(2*self.scale)
+	love.graphics.push()
+	love.graphics.scale(self.scale)
+	love.graphics.translate(cx, 0)
+	love.graphics.rotate(self.rot)
+	love.graphics.translate(-self.x, 0)
+end
+
 function Camera:detach()
 	love.graphics.pop()
 end
