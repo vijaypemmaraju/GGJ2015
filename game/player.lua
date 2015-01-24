@@ -7,7 +7,7 @@ function Player:initialize(pos)
  self.velocity = Vector()
  self.velocity.x = 100
  self.acceleration = Vector(0,gravity)
- self.jumpForce = 20 -- Player's starting velocity on a jump.
+ self.jumpForce = -200 -- Player's starting velocity on a jump.
  self.slideTimer = 0
  self.maxSlideTimer = 1
  self.sliding = false

@@ -36,7 +36,7 @@ function game:update(dt)
   TEsound.pitch('song', timeScale)
   
     
-  if love.keyboard.isDown(' ') and bar:isBulletTime()  then
+  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and bar:isBulletTime() and item ~= nil  then
     item.timeLeft = item.timeLeft + dt*2
   end
   bar:update(dt*timeScale)
@@ -59,19 +59,28 @@ function game:draw()
 end
 
 function game:keypressed(key)
-  if key == ' ' and bar:isBulletTime() then
-      item = {}
-      item.name = 'slide'
-      item.actionTime = player.maxSlideTimer
-      item.timeLeft = 0
-      item.hasPerformed = false
-      item.action = player.slide
-      bar:enqueue(item)
+  if bar:isBulletTime() then
+    if key == 's' then
+        item = {}
+        item.name = 'slide'
+        item.actionTime = player.maxSlideTimer
+        item.timeLeft = 0
+        item.hasPerformed = false
+        item.action = player.slide
+        bar:enqueue(item)
+    end
+  
+    if key == ' ' then
+        item = {}
+        item.name = 'jump'
+        item.actionTime = player.maxSlideTimer
+        item.timeLeft = 0
+        item.hasPerformed = false
+        item.action = player.jump
+        bar:enqueue(item)
+    end
   end
   
-  if key == 's' then
-    player:slide()
-  end
   
   if key == 'p' then
     player.position = Vector(player.position.x,50)
