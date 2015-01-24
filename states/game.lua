@@ -6,6 +6,7 @@ cam = require 'lib.hump.camera'
 
 camera = cam()
 player = Player(Vector(0,280))
+runTimer = 0
 
 
 defaultBulletTime = 0.125/2
@@ -29,6 +30,7 @@ function game:enter(previous) -- run every time the state is entered
 end
 
 function game:update(dt)
+  runTimer = runTimer + dt
   state.update(self, dt)
   map:update(dt)
   if bar.items[1].name == 'PLAN' then
@@ -40,7 +42,7 @@ function game:update(dt)
   TEsound.pitch('song', math.max(timeScale, 0.5))
   
     
-  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and bar:isBulletTime() and item ~= nil  then
+  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and item ~= nil  then
     item.timeLeft = item.timeLeft + dt*0.5
   end
   bar:update(dt*timeScale)
@@ -66,6 +68,9 @@ function game:draw()
   love.graphics.setColor(255,255,255,255)
   player:draw()
   camera:detach()
+  love.graphics.setFont(timerFont)
+  love.graphics.print(tostring(math.round(runTimer, 2)), 50, 50)
+  
   
   if bar:isBulletTime() then
     love.graphics.setColor(50, 50, 50, 150)
@@ -90,7 +95,7 @@ function game:keypressed(key)
     GameState.push(pause)
   end
 
-  if bar:isBulletTime() then
+  --if bar:isBulletTime() then
     if key == 's' then
         item = {}
         item.name = 'slide'
@@ -116,14 +121,16 @@ function game:keypressed(key)
         item.action = player.delay
         bar:enqueue(item)
     end
-
-  end
+--  end
   
   
   if key == 'p' then
-    player.position = Vector(player.position.x,50)
+    player.position = Vector(0,270)
     player.acceleration = Vector(0, gravity)
     player.velocity = Vector(player.velocity.x, 0)
+    bar = Bar()
+    bar:addBulletTime(defaultBulletTime)
+    
   end
 
   
