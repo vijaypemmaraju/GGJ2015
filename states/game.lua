@@ -113,9 +113,12 @@ function game:keypressed(key)
   
   
   if key == 'p' then
-    player.position = Vector(player.position.x,50)
+    player.position = Vector(0,270)
     player.acceleration = Vector(0, gravity)
     player.velocity = Vector(player.velocity.x, 0)
+    bar = Bar()
+    bar:addBulletTime(defaultBulletTime)
+    
   end
 
   
