@@ -25,7 +25,9 @@ function game:enter(previous) -- run every time the state is entered
  -- TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
   bar = Bar()
   bar:addBulletTime(defaultBulletTime)
-  player.position.x = 0
+  player.position = Vector(1250, 100)
+  
+  
 end
 
 function game:update(dt)
@@ -35,7 +37,7 @@ function game:update(dt)
   if bar.items[1].name == 'PLAN' then
     timeScale = 0.025
   else
-    timeScale = 1
+    timeScale = 0.5
   end
   player:update(dt*timeScale)
   TEsound.pitch('song', math.max(timeScale, 0.5))
@@ -114,7 +116,7 @@ function game:keypressed(key)
     if key == 's' then
         item = {}
         item.name = 'slide'
-        item.actionTime = player.maxSlideTimer
+        item.actionTime = player.maxSlideTimer+0.06
         item.hasPerformed = false
         item.action = player.slide
         bar:enqueue(item)
@@ -153,6 +155,7 @@ function game:reset()
     player:unslide()
     bar = Bar()
     bar:addBulletTime(defaultBulletTime)
+    game:enter(nil)
 end
 
 

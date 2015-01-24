@@ -4,14 +4,14 @@ Player = GameObject:subclass('Player')
 
 function Player:initialize(pos)
  GameObject.initialize(self, 'assets/player.png', pos)
- self.collider = Collider:addRectangle(self.position.x, self.position.y, self.texture:getWidth()-10, self.texture:getHeight()-5)
+ self.collider = Collider:addRectangle(self.position.x, self.position.y, self.texture:getWidth(), self.texture:getHeight())
  
  self.velocity = Vector()
  self.velocity.x = 256
  self.acceleration = Vector(0,gravity)
  self.jumpForce = -(96 + 64*gravity/self.velocity.x)-- Player's starting velocity on a jump.
  self.slideTimer = 0
- self.maxSlideTimer = 0.375
+ self.maxSlideTimer = 64/self.velocity.x
  self.jumpTimer = 64/self.velocity.x * 2
  self.sliding = false
  self.grounded = false
@@ -36,17 +36,18 @@ function Player:update(dt)
   
   
   self.velocity.y = math.min(self.velocity.y, 1000)
+  
   if self.sliding then
     self.slideTimer = self.slideTimer + dt
   end
   if self.slideTimer >= self.maxSlideTimer then
     self:unslide()
   end
-  local hitGround = false
-  
-  
+ local hitGround = false
   self.collider:moveTo(self.position.x, self.position.y)
   self.collider:setRotation(self.rotation)
+  
+  
   
   
   for _,tile in pairs(collisionTiles) do
@@ -71,12 +72,12 @@ function Player:update(dt)
 --          self.velocity.y = 0
 --        end
         
-
-         -- print(dx .. ' ' .. dy)\
         if dx < -1 then
            
           self.position.x = self.position.x + dx
         end
+         -- print(dx .. ' ' .. dy)\
+
         
      end
      
@@ -110,6 +111,8 @@ function Player:update(dt)
   --for 
   
   -- END DEBUG -- 
+  
+ 
 end
 
 function Player:draw()
@@ -144,6 +147,7 @@ end
 function Player:unslide()
   self.rotation = 0
   self.sliding = false
+  self.position.y = self.position.y - self.texture:getWidth()/2
   self.slideTimer = 0
   self.grounded = false
 end

@@ -13,7 +13,7 @@ function love.load(arg)
   love.mouse.setCursor(defaultCursor)
 
   -- Load a map exported to Lua from Tiled
-  map = sti.new("assets/levels/level1")
+  map = sti.new("assets/levels/level3")
   world = love.physics.newWorld()
   collision = map:initWorldCollision(world)
  
