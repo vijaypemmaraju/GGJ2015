@@ -3,7 +3,7 @@ require 'game.gameobject'
 Player = GameObject:subclass('Player')
 
 function Player:initialize(pos)
- GameObject.initialize(self, 'assets/dude.png', pos)
+ GameObject.initialize(self, 'assets/player.png', pos)
  self.velocity = Vector()
  self.velocity.x = 100
  self.acceleration = Vector(0,gravity)
@@ -46,7 +46,7 @@ function Player:jump()
 end
 
 function Player:slide()
-  self.rotation = math.pi/2
+  self.rotation = -math.pi/2
   self.sliding = true
 end
 
