@@ -4,6 +4,7 @@ Player = GameObject:subclass('Player')
 
 function Player:initialize(pos)
  GameObject.initialize(self, 'assets/player.png', pos)
+ self.collider = Collider:addRectangle(self.position.x, self.position.y, self.texture:getWidth(), self.texture:getHeight())
  self.velocity = Vector()
  self.velocity.x = 100
  self.acceleration = Vector(0,gravity)
@@ -25,16 +26,16 @@ function Player:update(dt)
   end
   
   -- DEBUG FLOOR SINCE NO COLLISON ATM, REMOVE LATER!!! --
-  if self.position.y >= 400 then
-    self.position.y = 400
-    self.grounded = true
-    if self.velocity.y > 0 then
-      self.velocity.y = 0
-    end
-  else
-    self.grounded = false
-  end
-  
+--  if self.position.y >= 400 then
+--    self.position.y = 400
+--    self.grounded = true
+--    if self.velocity.y > 0 then
+--      self.velocity.y = 0
+--    end
+--  else
+--    self.grounded = false
+--  end
+  --for 
   
   -- END DEBUG -- 
 end

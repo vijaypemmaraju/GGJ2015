@@ -56,12 +56,22 @@ function Bar:draw()
      actionWidth = item.actionTime * self.barScale
      if width + actionWidth > 0 then
 
-       love.graphics.setColor(255,155,155,155)
+
+       -- draw item rectangle
+       if item.name == "PLAN" then
+          love.graphics.setColor(200,55,155,155)
+       else
+          love.graphics.setColor(255,155,155,155)
+       end
+     
        love.graphics.rectangle('fill', x, 0, width, 50)
+       
+       -- draw left and right edges 
        love.graphics.setColor(255,255,255,155)
        love.graphics.line(x, 0, x , 50)
        love.graphics.line(x+width, 0, x+width  , 50)
       
+       --  draw text 
        if item.name == "PLAN" then
          love.graphics.setColor(25,25,25,155)
          love.graphics.printf(item.name, x, 0, width, 'center')
@@ -77,9 +87,11 @@ function Bar:draw()
          width = actionWidth
          love.graphics.setColor(255,55,55,155)
          love.graphics.rectangle('fill', x, 0, width, 50)
+         
          love.graphics.setColor(255,255,255,155)
          love.graphics.line(x, 0, x , 50)
          love.graphics.line(x+width, 0, x+width  , 50)
+         
          love.graphics.setColor(25,25,25,155)
          love.graphics.printf(item.name, x, 0, width, 'center')
          x = x + width

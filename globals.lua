@@ -29,7 +29,7 @@ timeScale = 1
 
 gravity = 1000 -- Acceleration of Gravity
 
-gameResolution = Vector(1366, 768)
+gameResolution = Vector(800, 600)
 
 function getVolume(amount) 
   return math.exp(amount)/10
@@ -78,7 +78,7 @@ function printTable(table)
       printTable(value)
       print()
     else
-      print(value)
+      print(i .. ": " .. tostring(value))
     end
   end
 end

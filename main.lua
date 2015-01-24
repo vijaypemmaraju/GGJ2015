@@ -1,6 +1,6 @@
 GameState = require 'lib.hump.gamestate'
 Timer = require 'lib.hump.timer'
---require 'lib.lovedebug'
+require 'lib.lovedebug'
 require 'globals'
 game = require 'states.game'
 pause = require 'states.pause'
@@ -14,6 +14,15 @@ function love.load(arg)
 
   -- Load a map exported to Lua from Tiled
   map = sti.new("assets/levels/level0")
+  world = love.physics.newWorld()
+  collision = map:initWorldCollision(world)
+  
+  for i, obj in pairs(collision) do
+    if type(obj.shape) == "table" then
+      Collider:addPolygon(collision.body:getWorldPoints(obj.shape:getPoints()))      
+    end
+    
+  end
 
 end
 

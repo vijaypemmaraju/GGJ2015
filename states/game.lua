@@ -36,7 +36,7 @@ function game:update(dt)
     timeScale = 1
   end
   player:update(dt*timeScale)
-  TEsound.pitch('song', timeScale)
+  TEsound.pitch('song', math.max(timeScale, 0.5))
   
     
   if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and bar:isBulletTime() and item ~= nil  then
@@ -52,13 +52,21 @@ function game:update(dt)
 end
 
 function game:draw()
+  love.graphics.setBackgroundColor(155,147, 124, 255)
   state:draw()
   bar:draw()
   camera:attach()
   map:draw()
+  map:drawWorldCollision(collision)
   love.graphics.setColor(255,255,255,255)
   player:draw()
   camera:detach()
+  
+  if bar:isBulletTime() then
+    love.graphics.setColor(50, 50, 50, 150)
+    love.graphics.rectangle('fill', 0, 0, love.window.getWidth(), love.window.getHeight())
+  end
+   
 end
 
 function game:keypressed(key)
@@ -77,6 +85,8 @@ function game:keypressed(key)
     player:moveUp()
   elseif key == 'down' then
     player:moveDown()
+  end
+  
   if key == 'escape' then
     GameState.push(pause)
   end
