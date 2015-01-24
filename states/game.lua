@@ -1,6 +1,7 @@
 require 'states.state'
 require 'game.player'
 require 'game.bar'
+require 'game.map'
 cam = require 'lib.hump.camera'
 
 camera = cam()
@@ -13,7 +14,6 @@ function game:initialize()
 end
 
 function game:init()
-  
 end
 
 
@@ -46,6 +46,7 @@ function game:update(dt)
   end
   
   camera.x = camera.x + dt*timeScale*100
+  player:update(dt)
 end
 
 function game:draw()
@@ -60,12 +61,20 @@ end
 
 function game:keypressed(key)
   if key == ' ' and bar:isBulletTime() then
-      item = {}
-      item.name = 'jump'
-      item.actionTime = 0.5
-      item.timeLeft = item.actionTime
-      
-      bar:enqueue(item)
+    item = {}
+    item.name = 'jump'
+    item.actionTime = 0.5
+    item.timeLeft = item.actionTime
+    
+    bar:enqueue(item)
+  elseif key == 'right' then
+    player:moveRight()
+  elseif key == 'left' then
+    player:moveLeft()
+  elseif key == 'up' then
+    player:moveUp()
+  elseif key == 'down' then
+    player:moveDown()
   end
   
   if key == 's' then
