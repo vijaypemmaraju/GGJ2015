@@ -19,6 +19,7 @@ end
 --states
 require 'states.state'
 menu = state:subclass('menu')
+pause = state:subclass('pause')
 game = state:subclass('game')
 
 Collider = HC(100, on_collision)
@@ -83,3 +84,6 @@ function printTable(table)
 end
 
 
+
+---FONTS---
+pauseFont = love.graphics.newFont(24)

@@ -10,10 +10,14 @@ player = Player(Vector(50,50))
 
 local item = nil
 function game:initialize()
+  state.initialize(self)
+  print("INITIALIZED!")
+  print(self.transitionInTime)
 
 end
 
 function game:init()
+  state.init(self)
 end
 
 
@@ -26,6 +30,7 @@ function game:enter(previous) -- run every time the state is entered
 end
 
 function game:update(dt)
+  state.update(self, dt)
   map:update(dt)
   if bar.items[1].name == 'PLAN' then
     timeScale = 0.2
@@ -36,7 +41,7 @@ function game:update(dt)
   TEsound.pitch('song', timeScale)
   
     
-  if love.keyboard.isDown(' ') and bar:isBulletTime()  then
+  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and bar:isBulletTime() and item ~= nil  then
     item.timeLeft = item.timeLeft + dt*2
   end
   bar:update(dt*timeScale)
@@ -45,8 +50,7 @@ function game:update(dt)
     bar:addBulletTime(1)
   end
   
-  camera.x = camera.x + dt*timeScale*100
-  player:update(dt)
+  camera.x = camera.x + dt*timeScale*bar.barScale
 end
 
 function game:draw()
@@ -75,11 +79,32 @@ function game:keypressed(key)
     player:moveUp()
   elseif key == 'down' then
     player:moveDown()
+  if key == 'escape' then
+    GameState.push(pause)
+  end
+
+  if bar:isBulletTime() then
+    if key == 's' then
+        item = {}
+        item.name = 'slide'
+        item.actionTime = player.maxSlideTimer
+        item.timeLeft = 0
+        item.hasPerformed = false
+        item.action = player.slide
+        bar:enqueue(item)
+    end
+  
+    if key == ' ' then
+        item = {}
+        item.name = 'jump'
+        item.actionTime = player.maxSlideTimer
+        item.timeLeft = 0
+        item.hasPerformed = false
+        item.action = player.jump
+        bar:enqueue(item)
+    end
   end
   
-  if key == 's' then
-    player:slide()
-  end
   
   if key == 'p' then
     player.position = Vector(player.position.x,50)
@@ -98,4 +123,4 @@ end
 
  
      
-return game
+return game()
