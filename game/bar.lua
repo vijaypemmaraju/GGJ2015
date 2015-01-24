@@ -10,10 +10,21 @@ end
 
 function Bar:update(dt)
   if #self.items > 0 then
-    self.items[1].timeLeft = self.items[1].timeLeft - dt
-    if self.items[1].timeLeft <= 0 then
-      table.remove(self.items, 1)
+    item = self.items[1]
+    if item.timeLeft <= 0 then
+        if not item.hasPerformed and item.action then
+          item.action(player)
+          item.hasPerformed = true
+        end
+        item.actionTime = item.actionTime - dt
+        if item.actionTime <= 0 then
+          table.remove(self.items, 1)
+        end
+    else
+      item.timeLeft = item.timeLeft - dt
     end
+    
+
   end
   
 end
@@ -22,7 +33,7 @@ function Bar:addBulletTime(amount)
   item = {}
   item.name = "PLAN"
   item.actionTime = 0
-  item.timeLeft = amount + item.actionTime
+  item.timeLeft = amount
 
   table.insert(self.items, item)
 end
@@ -42,8 +53,9 @@ function Bar:draw()
   x = 0
   for index, item in pairs(self.items) do
      width = item.timeLeft * self.barScale
-     if width > 0 then
-       width = width - item.actionTime * self.barScale
+     actionWidth = item.actionTime * self.barScale
+     if width + actionWidth > 0 then
+
        love.graphics.setColor(255,155,155,155)
        love.graphics.rectangle('fill', x, 0, width, 50)
        love.graphics.setColor(255,255,255,155)
@@ -59,10 +71,10 @@ function Bar:draw()
        end
        
        
-       x = x + width
+         x = x + width
        
        if item.actionTime > 0 then
-         width = item.actionTime * self.barScale
+         width = actionWidth
          love.graphics.setColor(255,55,55,155)
          love.graphics.rectangle('fill', x, 0, width, 50)
          love.graphics.setColor(255,255,255,155)

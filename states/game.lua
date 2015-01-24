@@ -45,7 +45,7 @@ function game:update(dt)
     bar:addBulletTime(1)
   end
   
-  camera.x = camera.x + dt*timeScale*100
+  camera.x = camera.x + dt*timeScale*bar.barScale
 end
 
 function game:draw()
@@ -61,10 +61,11 @@ end
 function game:keypressed(key)
   if key == ' ' and bar:isBulletTime() then
       item = {}
-      item.name = 'jump'
-      item.actionTime = 0.5
-      item.timeLeft = item.actionTime
-      
+      item.name = 'slide'
+      item.actionTime = player.maxSlideTimer
+      item.timeLeft = 0
+      item.hasPerformed = false
+      item.action = player.slide
       bar:enqueue(item)
   end
   
