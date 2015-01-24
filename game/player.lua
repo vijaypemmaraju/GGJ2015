@@ -15,7 +15,7 @@ function Player:initialize(pos)
 end
 
 function Player:update(dt)
-  self.position.x = self.position.x + self.velocity.x*dt
+  self.position = self.position + self.velocity*dt
   self.velocity = self.velocity + self.acceleration*dt
   if self.sliding then
     self.slideTimer = self.slideTimer + dt
