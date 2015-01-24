@@ -32,7 +32,7 @@ function game:update(dt)
   else
     timeScale = 1
   end
-  
+  player:update(dt*timeScale)
   TEsound.pitch('song', timeScale)
   
     
@@ -67,6 +67,11 @@ function game:keypressed(key)
       
       bar:enqueue(item)
   end
+  
+  if key == 's' then
+    player:slide()
+  end
+  
 end
 
 function game:keyreleased(key)
