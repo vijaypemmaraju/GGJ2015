@@ -83,3 +83,6 @@ function printTable(table)
 end
 
 
+
+---FONTS---
+pauseFont = love.graphics.newFont(24)
