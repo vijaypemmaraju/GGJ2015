@@ -10,12 +10,15 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1EsKgzAUBdAsRc3qxO5/XKUDRdr4SaRvcA5cFPMZvAumVJYP1q/uo84TfejuPn3Eoo9Y9BGLPmLRRyxHs8u7Z4s7+e2JPrivZR95l7PnWLXow8zbWWbZzekL66Wz1OnSZ/ZDYc/2f7P99u2da8Y508m8KgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/9AayzhHa
+   eJzt1l0KgkAUBtBZQkuwZnVh+3/O6CXCmWbS8NKcAxf/Fb5PxJTqcmHfUTM6fcTyKYP8tvz2ni2Z60Mf0egjFn3Eoo9YIvXx6tTxvH/yiz5a75cL2yP/++7Zx1qeo+fba48+er9luil7ZDMtc64cr13LNlN6Zn+pnLP2DufCOn2uy8yNc9swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcKQ7Qm4flg==
   </data>
  </layer>
- <layer name="Collision" width="100" height="100" visible="0">
+ <layer name="Collision" width="100" height="100">
+  <properties>
+   <property name="collidable" value="true"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1EEKgCAQQFFP4/2P2DKQ1LSRZvEeSIHZYn5Uylid7K8+xzcnemi3T49c9MhFj1z0yEWPXGazq8014p30nejBvsgetVlvz3GL6GHmcdrv+Wl/dJZvZvMvnf3auWdN+08/tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBPF9CMC28=
+   eJzt2EsKgDAMQEFP0/sf0X0xtpUWA5kB8Qcu8kTF63rXgmN/LdXpkctoBq1bf73mzMz10CMbPXLRIxc9csnUgzM9Zq/Xgv3K3Xb2eJpn9fmu2tFj9VmmTWx0/3r/njX7ndOfb8E2a/x3AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoIIbJxcaRw==
   </data>
  </layer>
 </map>
