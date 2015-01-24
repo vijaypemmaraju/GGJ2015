@@ -1,14 +1,16 @@
 require 'states.state'
+require 'game.player'
 cam = require 'lib.hump.camera'
 
 camera = cam()
-
+player = Player(Vector(50,50))
 
 function game:initialize()
   
 end
 
 function game:init()
+  
 end
 
 
@@ -28,7 +30,7 @@ function game:draw()
   state:draw()
   camera:attach()
   love.graphics.setColor(255,255,255,255)
-  love.graphics.rectangle('fill', 50, 40, 100, 100);
+  player:draw()
   camera:detach()
 end
 
