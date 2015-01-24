@@ -44,6 +44,7 @@ function game:update(dt)
     if love.keyboard.isDown('d') and bar:isBulletTime() and item.name == 'run' then
       item.actionTime = item.actionTime + dt
     end
+
   end
   bar:update(dt*timeScale)
   
@@ -65,7 +66,7 @@ function game:draw()
   camera:attach()
   
   map:draw()
-  map:drawWorldCollision(collision)
+  --map:drawWorldCollision(collision)
   love.graphics.setColor(255,255,255,255)
   player:draw()
   camera:detach()
@@ -125,16 +126,21 @@ function game:keypressed(key)
   
   
   if key == 'p' then
-    player.position = Vector(0,270)
-    player.acceleration = Vector(0, gravity)
-    player.velocity = Vector(player.velocity.x, 0)
-    bar = Bar()
-    bar:addBulletTime(defaultBulletTime)
+    self:reset()
     
   end
 
   
 end
+
+function game:reset()
+  player.position = Vector(0,270)
+    player.acceleration = Vector(0, gravity)
+    player.velocity = Vector(player.velocity.x, 0)
+    bar = Bar()
+    bar:addBulletTime(defaultBulletTime)
+end
+
 
 function game:keyreleased(key)
   if key == ' ' then

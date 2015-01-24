@@ -16,15 +16,22 @@ function love.load(arg)
   map = sti.new("assets/levels/level3")
   world = love.physics.newWorld()
   collision = map:initWorldCollision(world)
-  collisionTiles = {}
-  for _, obj in ipairs(collision) do
-   -- if type(obj.shape) == "table" then
-      local a,b,c,d,e,f,g,h = collision.body:getWorldPoints(obj.shape:getPoints())
-      table.insert(collisionTiles, shapes.newPolygonShape(a,b,c,d,e,f,g,h))
-   -- end
+ 
+     collisionTiles = {}
+    for _, obj in ipairs(collision) do
+     -- if type(obj.shape) == "table" then
+        local a,b,c,d,e,f,g,h = collision.body:getWorldPoints(obj.shape:getPoints())
+        table.insert(collisionTiles, shapes.newPolygonShape(a,b,c,d,e,f,g,h))
+     -- end
+      
+    end
     
+    deathTiles = {}
+    for _, obj in pairs(map.layers.Death.objects) do
+      local x,y,w,h = obj.x, obj.y, 64,64
+      print(x,y,w,h)
+      table.insert(deathTiles, shapes.newPolygonShape(x,y, x+w,y, x+w,y+h,  x,y+h))
   end
-  
  
 
 end

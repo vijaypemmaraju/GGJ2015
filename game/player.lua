@@ -14,6 +14,7 @@ function Player:initialize(pos)
  self.jumpTimer = 64/self.velocity.x * 2
  self.sliding = false
  self.grounded = false
+ self.dead = false
 end
 
 function Player:update(dt)
@@ -80,6 +81,16 @@ function Player:update(dt)
      
      
   end
+  
+  for _,tile in pairs(deathTiles) do
+         
+     local collides, dx, dy = self.collider:collidesWith(tile)
+     if collides then
+        game:reset()
+     end
+     
+   end
+   
   if not hitGround then
      self.grounded = false
   end

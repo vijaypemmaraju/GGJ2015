@@ -16,6 +16,9 @@ function on_collision(dt, a, b, dx, dy)
 
 end
 
+
+collisionTiles = {}
+deathTiles = {}
 --states
 require 'states.state'
 menu = state:subclass('menu')
