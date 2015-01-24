@@ -5,7 +5,7 @@ require 'game.map'
 cam = require 'lib.hump.camera'
 
 camera = cam()
-player = Player(Vector(0,280))
+player = Player(Vector(0,285))
 runTimer = 0
 
 defaultBulletTime = 0.125/2
@@ -25,7 +25,7 @@ function game:enter(previous) -- run every time the state is entered
   TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
   bar = Bar()
   bar:addBulletTime(defaultBulletTime)
-  player.position.x = player.texture:getWidth()
+  player.position.x = 0
 end
 
 function game:update(dt)
