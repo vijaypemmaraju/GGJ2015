@@ -69,7 +69,8 @@ function Player:update(dt)
 --          self.velocity.y = 0
 --        end
         
-         --print(dx .. ' ' .. dy)
+
+         -- print(dx .. ' ' .. dy)\
         if dx < -1 then
            
           self.position.x = self.position.x + dx
@@ -132,7 +133,6 @@ end
 
 function Player:moveRight()
 	self.velocity.x = 500
-	print('RIGHT')
 end
 
 function Player:stop()
