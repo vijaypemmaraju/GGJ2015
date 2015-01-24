@@ -40,7 +40,7 @@ function game:update(dt)
   TEsound.pitch('song', math.max(timeScale, 0.5))
   
     
-  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and bar:isBulletTime() and item ~= nil  then
+  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and item ~= nil  then
     item.timeLeft = item.timeLeft + dt*0.5
   end
   bar:update(dt*timeScale)
