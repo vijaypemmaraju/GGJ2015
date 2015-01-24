@@ -5,7 +5,7 @@ cam = require 'lib.hump.camera'
 
 camera = cam()
 player = Player(Vector(50,50))
-gravity = -10 -- Acceleration of Gravity
+
 
 local item = nil
 function game:initialize()
@@ -70,6 +70,12 @@ function game:keypressed(key)
   
   if key == 's' then
     player:slide()
+  end
+  
+  if key == 'p' then
+    player.position = Vector(player.position.x,50)
+    player.acceleration = Vector(0, gravity)
+    player.velocity = Vector(player.velocity.x, 0)
   end
   
 end
