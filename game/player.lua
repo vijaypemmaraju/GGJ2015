@@ -16,7 +16,7 @@ end
 
 function Player:update(dt)
   self.position = self.position + self.velocity*dt
-  self.velocity = self.velocity + self.acceleration*dt
+  -- self.velocity = self.velocity + self.acceleration*dt
   if self.sliding then
     self.slideTimer = self.slideTimer + dt
   end
@@ -54,4 +54,25 @@ function Player:unslide()
   self.rotation = 0
   self.sliding = false
   self.slideTimer = 0
+end
+
+function Player:moveUp()
+	self.velocity.y = 500
+end
+
+function Player:moveDown()
+	self.velocity.y = -500
+end
+
+function Player:moveLeft()
+	self.velocity.x = -500
+end
+
+function Player:moveRight()
+	self.velocity.x = 500
+	print('RIGHT')
+end
+
+function Player:stop()
+	self.velocity = Vector(0, 0)
 end
