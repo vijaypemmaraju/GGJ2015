@@ -40,9 +40,10 @@ function game:update(dt)
   player:update(dt*timeScale)
   TEsound.pitch('song', math.max(timeScale, 0.5))
   
-    
-  if love.keyboard.isDown('d') and bar:isBulletTime() and item.name == 'run' then
-    item.actionTime = item.actionTime + dt
+  if item ~= nil then  
+    if love.keyboard.isDown('d') and bar:isBulletTime() and item.name == 'run' then
+      item.actionTime = item.actionTime + dt
+    end
   end
   bar:update(dt*timeScale)
   
@@ -115,7 +116,7 @@ function game:keypressed(key)
     elseif key == 'd' then
         item = {}
         item.name = 'run'
-        item.actionTime = delayTime
+        item.actionTime = 0
         item.hasPerformed = false
         item.action = player.delay
         bar:enqueue(item)
