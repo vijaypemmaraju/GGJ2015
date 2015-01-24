@@ -2,8 +2,8 @@ require 'states.state'
 
 function pause:initialize()
   state:initialize(self)
-  print("INITIALIZED!")
-  print(self.transitionInTime)
+  --print("INITIALIZED!")
+  --print(self.transitionInTime)
 end
 
 function pause:init()

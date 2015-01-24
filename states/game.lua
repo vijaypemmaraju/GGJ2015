@@ -90,7 +90,7 @@ function game:keypressed(key)
     GameState.push(pause)
   end
 
-  if bar:isBulletTime() then
+  --if bar:isBulletTime() then
     if key == 's' then
         item = {}
         item.name = 'slide'
@@ -109,7 +109,7 @@ function game:keypressed(key)
         item.action = player.jump
         bar:enqueue(item)
     end
-  end
+--  end
   
   
   if key == 'p' then
