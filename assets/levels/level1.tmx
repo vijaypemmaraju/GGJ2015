@@ -10,7 +10,7 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1lkOgjAUBVCWgjZhbwb3/y1GPwxpSwUUCuckL4ShJbzL1DR5IbFtT3Um8tiXqesNo+XcOUv6mxp3JrXmsXZO3bu2Vmse4/1HeY5qzGPu9yX2DHSZ2kINeYTCY2LnSPV2ars8yuYolbvv9/CdSPn3+/lzvpBYP/O/8Jp5xHp15N79whp5fPsuk03aszftUJfM/txYlmmbV++vmWNi9/DUPw5lbkP1hXVfUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALClB5UgKNo=
+   eJzt1k1uwjAQBtAchTY36M++dNH2KhTuv+4gQKqi2DjBQELekz4hnGQAD3HcNHltYmxKWRL9mJZzv7ftvI6tWTK/qeuWZK79qN2nl8hr5ZpjzLUf3eOPch/NsR9jny9998Bp7C3yHvmIrCOfA+rWNId+tIXn9H1Gah1KjX9FviM/me95TVPqR0mNUpvI7zHbTnYD6tzardfn//XaxPsl74Vr9qNvrh557q6hRj+GrmV6k7afm1XkKXM8dy2XWTWHuX/OnNP3Hz63x6HMfp/R3V+ksrsgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcE9/rW8sTQ==
   </data>
  </layer>
  <layer name="Collision" width="100" height="100">
@@ -18,7 +18,7 @@
    <property name="collidable" value="true"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1mEKwyAMBtCexvsfcX+H1JkVN0x8D0ppbYXmK8br+qwN7u10nEQee5l9b+vOT+eM1Hf03kmy5lE1p6x59ONV8smYR+X+kiGPFnymQkY75RGZo7p/r8/v87XB9cl74ZV53NWqcu1+YUUe365lshmb/b+rcuBedJ/Tj8/2OMQ87ZOn91UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAByeQGvlyA3
+   eJzt1lsOgyAQBVBXw/6X2M8aMxSktBnknMT4RuWqw3F8VirbMk07kUcurectl/lomz39WztvJ6vmMTunLN/iqnlc92foyxlWzGO0vkTHZ6tbK+RROo+JrlG7Zmu7PPrauHMP2d79Hv/+P5/bK5X1ncfCM/OI+urJffcLM/L4tqby1np/Z+VArHecE40Lo2XuGa2Tu9dVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1vICB+IkEw==
   </data>
  </layer>
 </map>
