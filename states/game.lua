@@ -5,9 +5,10 @@ require 'game.map'
 cam = require 'lib.hump.camera'
 
 camera = cam()
-player = Player(Vector(0,270))
+player = Player(Vector(0,280))
 
-defaultBulletTime = 0.1
+
+defaultBulletTime = 0.125/2
 local item = nil
 function game:initialize()
   state.initialize(self)
@@ -24,14 +25,14 @@ function game:enter(previous) -- run every time the state is entered
   TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
   bar = Bar()
   bar:addBulletTime(defaultBulletTime)
-  
+  player.position.x = player.texture:getWidth()
 end
 
 function game:update(dt)
   state.update(self, dt)
   map:update(dt)
   if bar.items[1].name == 'PLAN' then
-    timeScale = 0.05
+    timeScale = 0.025
   else
     timeScale = 1
   end
@@ -116,6 +117,7 @@ function game:keypressed(key)
     player.acceleration = Vector(0, gravity)
     player.velocity = Vector(player.velocity.x, 0)
   end
+
   
 end
 

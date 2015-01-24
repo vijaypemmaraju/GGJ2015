@@ -10,8 +10,8 @@ function Player:initialize(pos)
  self.acceleration = Vector(0,gravity)
  self.jumpForce = -1200 -- Player's starting velocity on a jump.
  self.slideTimer = 0
- self.maxSlideTimer = 0.28
- self.jumpTimer = 0.4
+ self.maxSlideTimer = 0.25
+ self.jumpTimer = 0.375
  self.sliding = false
  self.grounded = false
 end
