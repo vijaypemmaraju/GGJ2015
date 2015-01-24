@@ -9,10 +9,14 @@ player = Player(Vector(50,50))
 
 local item = nil
 function game:initialize()
+  state.initialize(self)
+  print("INITIALIZED!")
+  print(self.transitionInTime)
 
 end
 
 function game:init()
+  state.init(self)
   
 end
 
@@ -26,6 +30,7 @@ function game:enter(previous) -- run every time the state is entered
 end
 
 function game:update(dt)
+  state.update(self, dt)
   map:update(dt)
   if bar.items[1].name == 'PLAN' then
     timeScale = 0.2
@@ -59,6 +64,10 @@ function game:draw()
 end
 
 function game:keypressed(key)
+  if key == 'escape' then
+    GameState.push(pause)
+  end
+
   if bar:isBulletTime() then
     if key == 's' then
         item = {}
@@ -99,4 +108,4 @@ end
 
  
      
-return game
+return game()
