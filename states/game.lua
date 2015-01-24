@@ -21,7 +21,7 @@ function game:enter(previous) -- run every time the state is entered
   state.enter(self,previous)
   TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
   bar = Bar()
-  bar:addBulletTime(2)
+  bar:addBulletTime(1)
   
 end
 
@@ -36,11 +36,16 @@ function game:update(dt)
   TEsound.pitch('song', timeScale)
   
     
-  if love.keyboard.isDown(' ') then
+  if love.keyboard.isDown(' ') and bar:isBulletTime()  then
     item.timeLeft = item.timeLeft + dt*2
   end
-  bar:update(dt)
+  bar:update(dt*timeScale)
   
+  if #bar.items == 0 then
+    bar:addBulletTime(1)
+  end
+  
+  camera.x = camera.x + dt*timeScale*100
 end
 
 function game:draw()
@@ -54,10 +59,12 @@ function game:draw()
 end
 
 function game:keypressed(key)
-  if key == ' ' then
+  if key == ' ' and bar:isBulletTime() then
       item = {}
       item.name = 'jump'
-      item.timeLeft = 0
+      item.actionTime = 0.5
+      item.timeLeft = item.actionTime
+      
       bar:enqueue(item)
   end
 end
