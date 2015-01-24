@@ -19,7 +19,25 @@ function Player:initialize(pos)
 end
 
 function Player:update(dt)
+  
+  
+  if self.dead then
+    self.velocity = Vector()
+    self.scale.x = self.scale.x - dt
+    self.scale.y = self.scale.y - dt
+    self.rotation = self.rotation + dt * 5
+    if self.scale.x < 0.01 then
+      self.scale = Vector (1,1)
+      self.dead = false
+      game:reset()
+    end
+    
+  end
+  
   self.position = self.position + self.velocity*dt
+  
+  
+  
   if not self.grounded then
     if self.velocity.y < 0 then
       self.velocity = self.velocity + self.acceleration*dt
@@ -88,7 +106,7 @@ function Player:update(dt)
          
      local collides, dx, dy = self.collider:collidesWith(tile)
      if collides then
-        game:reset()
+        self.dead = true
      end
      
    end
@@ -123,7 +141,9 @@ function Player:draw()
     table.insert(vertices, vertex.x)
     table.insert(vertices, vertex.y)
   end
-  love.graphics.polygon('fill', vertices)
+  triangles = love.math.triangulate(vertices)
+  
+ -- love.graphics.polygon('fill', vertices)
     
 end
 

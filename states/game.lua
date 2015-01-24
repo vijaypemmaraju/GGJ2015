@@ -22,10 +22,10 @@ end
 
 function game:enter(previous) -- run every time the state is entered
   state.enter(self,previous)
- -- TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
+  --TEsound.playLooping("assets/sounds/Running in the 90's.mp3", 'song', 9999, 0.5, 1)
   bar = Bar()
   bar:addBulletTime(defaultBulletTime)
-  player.position = Vector(1250, 100)
+  --player.position = Vector(1250, 100)
   
   
 end
@@ -34,13 +34,13 @@ function game:update(dt)
   runTimer = runTimer + dt
   state.update(self, dt)
   map:update(dt)
-  if bar.items[1].name == 'PLAN' then
+  if not player.dead and bar.items[1].name == 'PLAN' then
     timeScale = 0.025
   else
-    timeScale = 0.5
+    timeScale = 1
   end
   player:update(dt*timeScale)
-  TEsound.pitch('song', math.max(timeScale, 0.5))
+  TEsound.pitch('song', math.max(timeScale, 0.75))
   
   if item ~= nil then  
     if love.keyboard.isDown('d') and bar:isBulletTime() and item.name == 'run' then
@@ -50,7 +50,7 @@ function game:update(dt)
   end
   bar:update(dt*timeScale)
   
-  if #bar.items == 0 then
+  if #bar.items == 0 and not player.dead  then
     bar:addBulletTime(defaultBulletTime)
   end
   
@@ -80,7 +80,7 @@ function game:draw()
       table.insert(vertices, vertex.x)
       table.insert(vertices, vertex.y)
     end
-    love.graphics.polygon('fill', vertices)
+   -- love.graphics.polygon('fill', vertices)
   end
   
   
@@ -148,14 +148,16 @@ function game:keypressed(key)
 end
 
 function game:reset()
+  player = Player()
   player.position = Vector(0,270)
+  
     player.acceleration = Vector(0, gravity)
     player.velocity = Vector(player.velocity.x, 0)
     player.slideTimer = 0
     player:unslide()
     bar = Bar()
     bar:addBulletTime(defaultBulletTime)
-    game:enter(nil)
+    player.dead = false
 end
 
 
