@@ -15,11 +15,11 @@ function Choices:getRandMove()
 end
 
 function Choices:jump()
-    
+    Player.jump()
 end
 
 function Choices:slide()
-    
+    Player.rotation = math.pi
 end
 
 function Choices:hit()

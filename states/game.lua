@@ -5,9 +5,11 @@ cam = require 'lib.hump.camera'
 
 camera = cam()
 player = Player(Vector(50,50))
+gravity = -10 -- Acceleration of Gravity
+
 local item = nil
 function game:initialize()
-  
+
 end
 
 function game:init()
