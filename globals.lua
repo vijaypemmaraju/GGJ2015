@@ -8,6 +8,7 @@ require 'color'
 HC = require 'lib.HardonCollider'
 require 'lib.richtext'
 require 'lib.TESound'
+sti = require 'lib.sti'
 
 --collider
 function on_collision(dt, a, b, dx, dy)
