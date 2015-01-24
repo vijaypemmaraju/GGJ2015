@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="64" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="64" nextobjectid="4">
  <tileset firstgid="1" name="test_tileset" tilewidth="64" tileheight="64">
   <image source="../images/test_tileset.png" trans="ff00ff" width="1218" height="386"/>
   <tile id="37">
@@ -10,15 +10,15 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1k1uwjAQBtAchTY36M++dNH2KhTuv+4gQKqi2DjBQELekz4hnGQAD3HcNHltYmxKWRL9mJZzv7ftvI6tWTK/qeuWZK79qN2nl8hr5ZpjzLUf3eOPch/NsR9jny9998Bp7C3yHvmIrCOfA+rWNId+tIXn9H1Gah1KjX9FviM/me95TVPqR0mNUpvI7zHbTnYD6tzardfn//XaxPsl74Vr9qNvrh557q6hRj+GrmV6k7afm1XkKXM8dy2XWTWHuX/OnNP3Hz63x6HMfp/R3V+ksrsgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcE9/rW8sTQ==
+   eJzt1l1OwkAUBtAuwSUA3YHiO/qgbkVh/89eoiam6Ux/GKAD5yRfCNP2tsxNh2mavDYxtqTcE/1YlqHf23Y+59YcM7+p627RQ2K81n6U7tNj5KlwzTlq7Uf3eC3v0dB6XGM/5v6/9L0Df2PbyHNkF3mJvE6oW1IN/WhHntN3j9Q6lBp/i7xHPjLPeU5L6seYGmN9Rr5+s+/kMKHOpV16ff5fr018v+e9cMl+9M3VLc/dOZTox9S1TG/SjnOziqwzx3PXcppV8zP3m8w5Q/tifZjvuM/o7i9SOZwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuKZvn4gtDA==
   </data>
  </layer>
  <layer name="Collision" width="100" height="100">
-  <properties>
-   <property name="collidable" value="true"/>
-  </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1lsOgyAQBVBXw/6X2M8aMxSktBnknMT4RuWqw3F8VirbMk07kUcurectl/lomz39WztvJ6vmMTunLN/iqnlc92foyxlWzGO0vkTHZ6tbK+RROo+JrlG7Zmu7PPrauHMP2d79Hv/+P5/bK5X1ncfCM/OI+urJffcLM/L4tqby1np/Z+VArHecE40Lo2XuGa2Tu9dVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1vICB+IkEw==
+   eJzt1lsOgyAQBVBXw/6X2M8aAzJS2gzlnMQYX6hcZTiOe6WxL9OyE3nk0nvfclmPthnp39Z1O1k1j9k5ZfkXV83jejxDX0b0xuMV8xitL633z1S3VsijBM+p3aN1z95+ecTaePIM2b79iF+Pz+f2SmN757nwzDxqffXPffcNM/L4tKby1vt+Z+VAXXSeczcvlsO40Tq5e10FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgLS8zhCTR
   </data>
  </layer>
+ <objectgroup name="Death">
+  <object id="3" gid="19" x="128" y="256"/>
+ </objectgroup>
 </map>

@@ -13,7 +13,7 @@ function love.load(arg)
   love.mouse.setCursor(defaultCursor)
 
   -- Load a map exported to Lua from Tiled
-  map = sti.new("assets/levels/level3")
+  map = sti.new("assets/levels/level1")
   world = love.physics.newWorld()
   collision = map:initWorldCollision(world)
  
@@ -28,7 +28,7 @@ function love.load(arg)
     
     deathTiles = {}
     for _, obj in pairs(map.layers.Death.objects) do
-      local x,y,w,h = obj.x+2, obj.y-2, 64-2,64-2
+      local x,y,w,h = obj.x+2, obj.y+2, 64-4,64-4
       print(x,y,w,h)
       table.insert(deathTiles, shapes.newPolygonShape(x,y, x+w,y, x+w,y+h,  x,y+h))
   end
