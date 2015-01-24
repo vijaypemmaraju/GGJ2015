@@ -6,7 +6,8 @@ cam = require 'lib.hump.camera'
 
 camera = cam()
 player = Player(Vector(0,280))
-
+local delaying = false;
+local delayTime = 0;
 
 defaultBulletTime = 0.125/2
 local item = nil
@@ -40,8 +41,8 @@ function game:update(dt)
   TEsound.pitch('song', math.max(timeScale, 0.5))
   
     
-  if (love.keyboard.isDown(' ') or love.keyboard.isDown('s')) and bar:isBulletTime() and item ~= nil  then
-    item.timeLeft = item.timeLeft + dt*0.5
+  if love.keyboard.isDown('d') and bar:isBulletTime() and item.name == 'run' then
+    item.actionTime = item.actionTime + dt
   end
   bar:update(dt*timeScale)
   
@@ -51,6 +52,7 @@ function game:update(dt)
   
   camera.x = player.position.x + 150--camera.x + dt*timeScale*bar.barScale
   camera.y = player.position.y
+
 end
 
 function game:draw()
@@ -71,6 +73,7 @@ function game:draw()
     love.graphics.setColor(50, 50, 50, 150)
     love.graphics.rectangle('fill', 0, 0, love.window.getWidth(), love.window.getHeight())
   end
+
    
 end
 
@@ -95,7 +98,6 @@ function game:keypressed(key)
         item = {}
         item.name = 'slide'
         item.actionTime = player.maxSlideTimer
-        item.timeLeft = 0
         item.hasPerformed = false
         item.action = player.slide
         bar:enqueue(item)
@@ -104,14 +106,13 @@ function game:keypressed(key)
         item = {}
         item.name = 'jump'
         item.actionTime = player.jumpTimer
-        item.timeLeft = 0
         item.hasPerformed = false
         item.action = player.jump
         bar:enqueue(item)
     elseif key == 'd' then
         item = {}
-        item.name = 'delay'
-        item.timeLeft = 0
+        item.name = 'run'
+        item.actionTime = delayTime
         item.hasPerformed = false
         item.action = player.delay
         bar:enqueue(item)
@@ -131,7 +132,7 @@ end
 
 function game:keyreleased(key)
   if key == ' ' then
-      item = nil
+    item = nil
   end
   
 end
