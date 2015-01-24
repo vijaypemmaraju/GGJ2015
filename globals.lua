@@ -14,9 +14,18 @@ function on_collision(dt, a, b, dx, dy)
 
 end
 
+--states
+require 'states.state'
+menu = state:subclass('menu')
+game = state:subclass('game')
+
 Collider = HC(100, on_collision)
 
 time = 0
+timeScale = 1
+
+
+gameResolution = Vector(1366, 768)
 
 function getVolume(amount) 
   return math.exp(amount)/10
