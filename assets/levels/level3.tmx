@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="64" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="64" nextobjectid="31">
  <tileset firstgid="1" name="test_tileset" tilewidth="64" tileheight="64">
   <image source="../images/test_tileset.png" trans="ff00ff" width="1218" height="386"/>
   <tile id="37">
@@ -23,4 +23,36 @@
    eJzt1ckNwCAMBEBKoP9q00CkBBKEjWc+/BDrQ7QGe/XdD5jUH86ROxi3qnZRezIzX6eomDm66D2puC+Vsmbxd09W/3sVZuhLxgr12eFtXaPUv8K+3GU7OW8WGXtQYV8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA8122zgHh
   </data>
  </layer>
+ <objectgroup name="Death">
+  <object id="1" gid="19" x="192" y="256"/>
+  <object id="2" gid="19" x="448" y="192"/>
+  <object id="3" gid="19" x="576" y="192"/>
+  <object id="4" gid="19" x="704" y="192"/>
+  <object id="5" gid="19" x="832" y="192"/>
+  <object id="6" gid="19" x="1536" y="192"/>
+  <object id="7" gid="19" x="1600" y="256"/>
+  <object id="8" gid="19" x="1664" y="320"/>
+  <object id="9" gid="19" x="1728" y="384"/>
+  <object id="10" gid="19" x="1792" y="448"/>
+  <object id="11" gid="19" x="1856" y="512"/>
+  <object id="12" gid="19" x="1920" y="576"/>
+  <object id="13" gid="19" x="1984" y="640"/>
+  <object id="14" gid="19" x="2048" y="704"/>
+  <object id="15" gid="19" x="2176" y="768"/>
+  <object id="16" gid="19" x="2368" y="704"/>
+  <object id="17" gid="19" x="2624" y="640"/>
+  <object id="18" gid="19" x="2880" y="576"/>
+  <object id="19" gid="19" x="3136" y="512"/>
+  <object id="20" gid="19" x="3904" y="128"/>
+  <object id="21" gid="19" x="4032" y="256"/>
+  <object id="22" gid="19" x="4160" y="256"/>
+  <object id="23" gid="19" x="4288" y="384"/>
+  <object id="24" gid="19" x="4416" y="384"/>
+  <object id="25" gid="19" x="4544" y="512"/>
+  <object id="26" gid="19" x="4672" y="512"/>
+  <object id="27" gid="19" x="4800" y="640"/>
+  <object id="28" gid="19" x="4928" y="640"/>
+  <object id="29" gid="19" x="5056" y="768"/>
+  <object id="30" gid="19" x="5184" y="768"/>
+ </objectgroup>
 </map>
