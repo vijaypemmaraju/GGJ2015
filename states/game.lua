@@ -26,7 +26,7 @@ function game:enter(previous) -- run every time the state is entered
   bar = Bar()
   bar:addBulletTime(defaultBulletTime)
   --player.position = Vector(1250, 100)
-  
+  canvas = love.graphics.newCanvas(gameResolution.x, gameResolution.y, 'hdr', 8)
   
 end
 
@@ -60,6 +60,11 @@ function game:update(dt)
 end
 
 function game:draw()
+  
+  
+  love.graphics.setCanvas(canvas)
+  love.graphics.clear() 
+  
   love.graphics.setBackgroundColor(155,147, 124, 255)
   state:draw()
   camera:attachXOnly()
@@ -92,7 +97,9 @@ function game:draw()
     love.graphics.setColor(50, 50, 50, 150)
     love.graphics.rectangle('fill', 0, 0, love.window.getWidth(), love.window.getHeight())
   end
-
+  love.graphics.setCanvas()
+  love.graphics.setColor(255,255,255,255)
+  love.graphics.draw(canvas)
    
 end
 

@@ -7,7 +7,7 @@ return {
   height = 100,
   tilewidth = 64,
   tileheight = 64,
-  nextobjectid = 96,
+  nextobjectid = 104,
   properties = {},
   tilesets = {
     {
@@ -269,7 +269,7 @@ return {
     {
       type = "objectgroup",
       name = "Spike",
-      visible = false,
+      visible = true,
       opacity = 1,
       properties = {},
       objects = {
@@ -283,7 +283,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          gid = 1073741840,
+          gid = 16,
           visible = true,
           properties = {}
         },
@@ -297,7 +297,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          gid = 1073741840,
+          gid = 16,
           visible = true,
           properties = {}
         },
@@ -325,21 +325,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          gid = 1073741840,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 23,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1920,
-          y = 192,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          gid = 1073741840,
+          gid = 16,
           visible = true,
           properties = {}
         },
@@ -367,7 +353,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          gid = 1073741840,
+          gid = 16,
           visible = true,
           properties = {}
         }
@@ -1297,6 +1283,62 @@ return {
           shape = "rectangle",
           x = 3520,
           y = 512,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          gid = 19,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 100,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 320,
+          y = 384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          gid = 19,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 101,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 384,
+          y = 384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          gid = 19,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 102,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1024,
+          y = 384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          gid = 19,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 103,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1088,
+          y = 384,
           width = 0,
           height = 0,
           rotation = 0,
